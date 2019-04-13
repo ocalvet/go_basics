@@ -1,5 +1,7 @@
 package stack
 
+import "fmt"
+
 // Stack datastructure
 type Stack struct {
 	top *node
@@ -15,8 +17,12 @@ func New() *Stack {
 }
 
 func (stack *Stack) Push(v interface{}) {
+	newNode := &node{nil, v}
 	if stack.top == nil {
-		stack.top = &node{nil, v}
+		stack.top = newNode
+	} else {
+		newNode.prev = stack.top.prev
+		stack.top = newNode
 	}
 }
 
@@ -25,5 +31,8 @@ func (stack *Stack) Pop() interface{} {
 }
 
 func (stack *Stack) Print() {
-	
+	for node := stack.top; node != nil; {
+		fmt.Println(node.v)
+		node = node.prev
+	}
 }

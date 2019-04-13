@@ -5,9 +5,15 @@ import (
 
 	"go_basics/btree"
 	"go_basics/linkedlist"
+	"go_basics/stack"
 )
 
 func main() {
+	ll()
+	s()
+}
+
+func ll() {
 	fmt.Println("Link list example")
 	list := linkedlist.New()
 	list.Add(4)
@@ -28,4 +34,13 @@ func main() {
 
 	bt.Add(3)
 	bt.Print()
+}
+
+func s() {
+	fmt.Println("STACK")
+	st := stack.New()
+	st.Push(1)
+	st.Push(4)
+	st.Push(6)
+	st.Print()
 }
