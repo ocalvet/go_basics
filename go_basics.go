@@ -43,4 +43,6 @@ func s() {
 	st.Push(4)
 	st.Push(6)
 	st.Print()
+	st.Pop()
+	st.Print()
 }

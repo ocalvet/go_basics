@@ -30,7 +30,14 @@ func (stack *Stack) Push(v interface{}) {
 
 // Pop pops and element from the top of the stack
 func (stack *Stack) Pop() interface{} {
-	return stack.top.v
+	if stack.top == nil {
+		return nil
+	}
+	poppedElement := stack.top
+	if poppedElement.prev != nil {
+		stack.top = poppedElement.prev
+	}
+	return poppedElement
 }
 
 // Print the contents of the stack
