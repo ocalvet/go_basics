@@ -12,10 +12,12 @@ type node struct {
 	v    interface{}
 }
 
+// New creates a new Stacj
 func New() *Stack {
 	return &Stack{}
 }
 
+// Push an element to the top of the stack
 func (stack *Stack) Push(v interface{}) {
 	newNode := &node{nil, v}
 	if stack.top == nil {
@@ -26,10 +28,12 @@ func (stack *Stack) Push(v interface{}) {
 	}
 }
 
+// Pop pops and element from the top of the stack
 func (stack *Stack) Pop() interface{} {
 	return stack.top.v
 }
 
+// Print the contents of the stack
 func (stack *Stack) Print() {
 	for node := stack.top; node != nil; {
 		fmt.Println(node.v)
