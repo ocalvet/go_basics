@@ -21,7 +21,7 @@ func (stack *Stack) Push(v interface{}) {
 	if stack.top == nil {
 		stack.top = newNode
 	} else {
-		newNode.prev = stack.top.prev
+		newNode.prev = stack.top
 		stack.top = newNode
 	}
 }
