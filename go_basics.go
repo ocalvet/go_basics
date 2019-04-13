@@ -9,11 +9,11 @@ import (
 )
 
 func main() {
-	ll()
-	s()
+	runLinkedListSample()
+	runStackSample()
 }
 
-func ll() {
+func runLinkedListSample() {
 	fmt.Println("Link list example")
 	list := linkedlist.New()
 	list.Add(4)
@@ -36,7 +36,7 @@ func ll() {
 	bt.Print()
 }
 
-func s() {
+func runStackSample() {
 	fmt.Println("STACK")
 	st := stack.New()
 	st.Push(1)
