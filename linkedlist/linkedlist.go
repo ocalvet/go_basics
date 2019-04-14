@@ -31,6 +31,25 @@ func (list *LinkedList) Add(v interface{}) {
 	}
 }
 
+// Remove removes a value to the list
+func (list *LinkedList) Remove(v interface{}) {
+	if list.head == nil {
+		return
+	}
+	if list.head.value == v {
+		list.head = list.head.next
+		return
+	}
+	// find last node and insert another element
+	for n := list.head; n != nil; {
+		if n.next.value == v {
+			n.next = n.next.next
+			return
+		}
+		n = n.next
+	}
+}
+
 // Print prints the values in the list
 func (list *LinkedList) Print() {
 	n := list.head
