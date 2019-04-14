@@ -10,8 +10,8 @@ import (
 
 func main() {
 	runLinkedListSample()
-	runStackSample()
-	runBTreeSample()
+	// runStackSample()
+	// runBTreeSample()
 }
 
 func runLinkedListSample() {
@@ -20,6 +20,8 @@ func runLinkedListSample() {
 	list.Add(4)
 	list.Add(23)
 	list.Add(2)
+	list.Print()
+	list.Remove(2)
 	list.Print()
 }
 
