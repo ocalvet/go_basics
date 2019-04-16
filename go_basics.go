@@ -9,9 +9,14 @@ import (
 )
 
 func main() {
-	runLinkedListSample()
+	// runLinkedListSample()
 	// runStackSample()
+	runQueueSample()
 	// runBTreeSample()
+}
+
+func runQueueSample() {
+	fmt.Println("Queue example")
 }
 
 func runLinkedListSample() {
