@@ -5,6 +5,7 @@ import (
 
 	"go_basics/btree"
 	"go_basics/linkedlist"
+	"go_basics/queue"
 	"go_basics/stack"
 )
 
@@ -17,6 +18,8 @@ func main() {
 
 func runQueueSample() {
 	fmt.Println("Queue example")
+	q := queue.New()
+	q.Print()
 }
 
 func runLinkedListSample() {

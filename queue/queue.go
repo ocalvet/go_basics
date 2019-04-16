@@ -1,8 +1,10 @@
-package Queue
+package queue
+
+import "fmt"
 
 // Queue datastructure
 type Queue struct {
-	top *node
+	root *node
 }
 
 type node struct {
@@ -15,15 +17,15 @@ func New() *Queue {
 }
 
 func (Queue *Queue) Enqueue(v interface{}) {
-	if Queue.top == nil {
-		Queue.top = &node{nil, v}
+	if Queue.root == nil {
+		Queue.root = &node{nil, v}
 	}
 }
 
 func (Queue *Queue) Dequeue() interface{} {
-	return Queue.top.v
+	return Queue.root.v
 }
 
 func (Queue *Queue) Print() {
-
+	fmt.Println("Printing queue")
 }
