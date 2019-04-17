@@ -32,7 +32,12 @@ func (queue *Queue) Enqueue(v interface{}) {
 
 // Dequeue removes an element from the queue
 func (queue *Queue) Dequeue() interface{} {
-	return queue.root.v
+	if queue.root == nil {
+		return nil
+	}
+	v := queue.root
+	queue.root = queue.root.next
+	return v
 }
 
 // Print prints the elements of the queue in the console
