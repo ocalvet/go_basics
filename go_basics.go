@@ -19,6 +19,12 @@ func main() {
 func runQueueSample() {
 	fmt.Println("Queue example")
 	q := queue.New()
+	q.Enqueue(1)
+	q.Enqueue(2)
+	q.Enqueue(3)
+	q.Enqueue(4)
+	q.Print()
+	q.Dequeue()
 	q.Print()
 }
 
