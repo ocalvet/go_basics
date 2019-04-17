@@ -18,18 +18,20 @@ func New() *Queue {
 }
 
 // Enqueue queues an element into the queue
-func (Queue *Queue) Enqueue(v interface{}) {
-	if Queue.root == nil {
-		Queue.root = &node{nil, v}
+func (queue *Queue) Enqueue(v interface{}) {
+	if queue.root == nil {
+		queue.root = &node{nil, v}
 	}
 }
 
 // Dequeue removes an element from the queue
-func (Queue *Queue) Dequeue() interface{} {
-	return Queue.root.v
+func (queue *Queue) Dequeue() interface{} {
+	return queue.root.v
 }
 
 // Print prints the elements of the queue in the console
-func (Queue *Queue) Print() {
-	fmt.Println("Printing queue")
+func (queue *Queue) Print() {
+	for n := queue.root; n != nil; n = n.prev {
+		fmt.Println(n.v)
+	}
 }
