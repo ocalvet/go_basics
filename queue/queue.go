@@ -8,7 +8,7 @@ type Queue struct {
 }
 
 type node struct {
-	prev *node
+	next *node
 	v    interface{}
 }
 
@@ -21,7 +21,13 @@ func New() *Queue {
 func (queue *Queue) Enqueue(v interface{}) {
 	if queue.root == nil {
 		queue.root = &node{nil, v}
+		return
 	}
+	var n *node
+	for n = queue.root; n.next != nil; n = n.next {
+	}
+	last := &node{nil, v}
+	n.next = last
 }
 
 // Dequeue removes an element from the queue
@@ -31,7 +37,7 @@ func (queue *Queue) Dequeue() interface{} {
 
 // Print prints the elements of the queue in the console
 func (queue *Queue) Print() {
-	for n := queue.root; n != nil; n = n.prev {
+	for n := queue.root; n != nil; n = n.next {
 		fmt.Println(n.v)
 	}
 }
