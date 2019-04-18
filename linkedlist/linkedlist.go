@@ -4,7 +4,7 @@ import "fmt"
 
 // LinkedList models a linked list
 type LinkedList struct {
-	head *node
+	root *node
 }
 
 type node struct {
@@ -19,11 +19,11 @@ func New() *LinkedList {
 
 // Add adds a value to the list
 func (list *LinkedList) Add(v interface{}) {
-	if list.head == nil {
-		list.head = &node{nil, v}
+	if list.root == nil {
+		list.root = &node{nil, v}
 	} else {
 		// find last node and insert another element
-		n := list.head
+		n := list.root
 		for n.next != nil {
 			n = n.next
 		}
@@ -33,15 +33,15 @@ func (list *LinkedList) Add(v interface{}) {
 
 // Remove removes a value to the list
 func (list *LinkedList) Remove(v interface{}) {
-	if list.head == nil {
+	if list.root == nil {
 		return
 	}
-	if list.head.value == v {
-		list.head = list.head.next
+	if list.root.value == v {
+		list.root = list.root.next
 		return
 	}
 	// find last node and insert another element
-	for n := list.head; n != nil; {
+	for n := list.root; n != nil; {
 		if n.next.value == v {
 			n.next = n.next.next
 			return
@@ -52,7 +52,7 @@ func (list *LinkedList) Remove(v interface{}) {
 
 // Print prints the values in the list
 func (list *LinkedList) Print() {
-	n := list.head
+	n := list.root
 	if n == nil {
 		fmt.Println("Empty")
 		return
