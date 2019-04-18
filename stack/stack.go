@@ -4,11 +4,11 @@ import "fmt"
 
 // Stack datastructure
 type Stack struct {
-	top *node
+	root *node
 }
 
 type node struct {
-	prev *node
+	next *node
 	v    interface{}
 }
 
@@ -17,33 +17,33 @@ func New() *Stack {
 	return &Stack{}
 }
 
-// Push an element to the top of the stack
+// Push an element to the root of the stack
 func (stack *Stack) Push(v interface{}) {
 	newNode := &node{nil, v}
-	if stack.top == nil {
-		stack.top = newNode
+	if stack.root == nil {
+		stack.root = newNode
 	} else {
-		newNode.prev = stack.top
-		stack.top = newNode
+		newNode.next = stack.root
+		stack.root = newNode
 	}
 }
 
-// Pop pops and element from the top of the stack
+// Pop pops and element from the root of the stack
 func (stack *Stack) Pop() interface{} {
-	if stack.top == nil {
+	if stack.root == nil {
 		return nil
 	}
-	poppedElement := stack.top
-	if poppedElement.prev != nil {
-		stack.top = poppedElement.prev
+	poppedElement := stack.root
+	if poppedElement.next != nil {
+		stack.root = poppedElement.next
 	}
 	return poppedElement
 }
 
 // Print the contents of the stack
 func (stack *Stack) Print() {
-	for node := stack.top; node != nil; {
+	for node := stack.root; node != nil; {
 		fmt.Println(node.v)
-		node = node.prev
+		node = node.next
 	}
 }
