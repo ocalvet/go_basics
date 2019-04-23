@@ -1,7 +1,9 @@
-package main
+package bubble_sort
 
-import "fmt"
+import (
+	"go_basics/linkedlist"
+)
 
-func main() {
-	fmt.Println("Bubble Sort Example")
+func Sort(list *linkedlist.LinkedList) linkedlist.LinkedList {
+	return *linkedlist.New()
 }
