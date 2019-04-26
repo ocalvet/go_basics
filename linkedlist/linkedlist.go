@@ -17,6 +17,21 @@ func New() *LinkedList {
 	return &LinkedList{}
 }
 
+// Iterator Returns an iterator function that can traverse the list
+func (list *LinkedList) Iterator() func() (interface{}, bool) {
+	current := list.root
+	return func() (interface{}, bool) {
+		hasNext := current.next != nil
+		currentNode := current
+		if currentNode != nil {
+			current = current.next
+			return currentNode.value, hasNext
+		} else {
+			return nil, hasNext
+		}
+	}
+}
+
 // Add adds a value to the list
 func (list *LinkedList) Add(v interface{}) {
 	if list.root == nil {
