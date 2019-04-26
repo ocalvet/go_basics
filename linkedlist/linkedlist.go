@@ -21,7 +21,7 @@ func New() *LinkedList {
 func (list *LinkedList) Iterator() func() (interface{}, bool) {
 	current := list.root
 	return func() (interface{}, bool) {
-		hasNext := current.next != nil
+		hasNext := current != nil && current.next != nil
 		currentNode := current
 		if currentNode != nil {
 			current = current.next
@@ -67,13 +67,11 @@ func (list *LinkedList) Remove(v interface{}) {
 
 // Print prints the values in the list
 func (list *LinkedList) Print() {
-	n := list.root
-	if n == nil {
-		fmt.Println("Empty")
-		return
-	}
-	for n != nil {
-		fmt.Printf("%v\n", n.value)
-		n = n.next
+	iter := list.Iterator()
+	for v, hasNext := iter(); hasNext; {
+		if v != nil {
+			fmt.Println(v)
+		}
+		v, hasNext = iter()
 	}
 }
