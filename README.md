@@ -1,6 +1,6 @@
 # Go Basics
 
-This repository contains data structures and algorithms implemented in go
+This repository contains data structures and algorithms implemented in go. The project is structure in such a way that each folder contains either an implamentation of an algorithm or an implementation of a data structure.
 
 ## How to run
 
